@@ -122,8 +122,9 @@ show_installed_tools() {
     clear
     echo "${CYAN}${BOLD}Installed tools:${RESET}"
     for tool in "${tools[@]}"; do
-        if [ -d "${tool%% -*}" ]; then
-            echo "${GREEN}- ${tool%% -*}${RESET}"
+        tool_name=${tool%% -*}  # Extract only the tool name
+        if [ -d "$HOME/$tool_name" ]; then
+            echo "${GREEN}- $tool_name${RESET}"
         fi
     done
     read -p "${CYAN}Press Enter to continue...${RESET}" dummy
