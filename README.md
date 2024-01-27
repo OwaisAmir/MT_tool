@@ -15,7 +15,7 @@ The MT Tool not only enhances productivity by centralizing tool management but a
 Termux Commands 
 
 1) pkg install bit
-2) git clone https://github.com/OwaisAmir/MT_tool
+2) git clone https://github.com/OwaisAmir/MT_tool.git
 3) cd MT_tool
 4) chmod +x MT_tool.sh
 5) bash MT_tool.sh
