@@ -15,8 +15,6 @@ check_package git
 # Check if ncurses-utils is installed
 check_package ncurses-utils
 
-# Your script continues here...
-
 # Define colors and formatting using tput
 RED=$(tput setaf 1)
 GREEN=$(tput setaf 2)
@@ -149,10 +147,10 @@ download_tool() {
         tool_url=$(echo "${tools[$choice]}" | cut -d' ' -f3)  # Extract the GitHub URL
         echo "${CYAN}Downloading $selected_tool...${RESET}"
         
-        # Create a directory for the tool
-        mkdir -p "$selected_tool"
+        # Change directory to the home directory
+        cd ~
         
-        # Clone the tool's GitHub repository
+        # Clone the tool's GitHub repository in the home directory
         git clone "$tool_url" "$selected_tool"
         
         echo "${GREEN}Downloaded $selected_tool successfully!${RESET}"
@@ -226,4 +224,3 @@ open_youtube_channel() {
 while true; do
     display_menu
 done
-
