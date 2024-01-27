@@ -160,7 +160,7 @@ uninstall_tool() {
     installed_tools=()
     for tool in "${tools[@]}"; do
         tool_name=${tool%% -*}  # Extract only the tool name
-        if [ -d "$tool_name" ]; then
+        if [ -d "$HOME/$tool_name" ]; then
             installed_tools+=("$tool_name")
         fi
     done
@@ -178,8 +178,17 @@ uninstall_tool() {
         if [[ "$choice" =~ ^[0-9]+$ && "$choice" -ge 0 && "$choice" -lt "${#installed_tools[@]}" ]]; then
             selected_tool="${installed_tools[$choice]}"
             echo "${CYAN}Uninstalling $selected_tool...${RESET}"
-            rm -rf "$selected_tool"
-            echo "${GREEN}Uninstalled $selected_tool successfully!${RESET}"
+            if [ -d "$HOME/$selected_tool" ]; then
+                echo "DEBUG: Tool directory exists: $HOME/$selected_tool"
+                rm -rf "$HOME/$selected_tool"
+                if [ $? -eq 0 ]; then
+                    echo "${GREEN}Uninstalled $selected_tool successfully!${RESET}"
+                else
+                    echo "${RED}Failed to uninstall $selected_tool.${RESET}"
+                fi
+            else
+                echo "${RED}Tool directory not found: $HOME/$selected_tool.${RESET}"
+            fi
         elif [ "$choice" == "q" ]; then
             echo "${CYAN}Going back to main menu...${RESET}"
         else
@@ -189,6 +198,7 @@ uninstall_tool() {
     read -p "${CYAN}Press Enter to continue...${RESET}" dummy
     open_youtube_channel
 }
+
 
 # Function to display about information and open YouTube channel link
 about() {
