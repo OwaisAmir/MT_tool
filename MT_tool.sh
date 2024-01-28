@@ -13,6 +13,7 @@ RESET=$(tput sgr0)
 # Define array of tool names and their GitHub repository URLs
 tools=(
     "MTbanner - https://github.com/OwaisAmir/MTbanner.git"
+    "pystegosploit - https://github.com/Charmve/PyStegosploit.git"
     "MT_Logo - https://github.com/OwaisAmir/MT_Logo.git"
     "MaxPhisher - https://github.com/KasRoudra/MaxPhisher.git"
     "Vidphishing - https://github.com/KasRoudra/VidPhisher.git"
