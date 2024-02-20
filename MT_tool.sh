@@ -115,7 +115,7 @@ show_installed_tools() {
             echo "${GREEN}- $tool_name${RESET}"
         fi
     done
-    read -p "${CYAN}Press Enter to continue...${RESET}" dummy
+    read -p "${CYAN}Press Enter to continue...${RESET}" 
 }
 
 # Function to download a tool
@@ -196,8 +196,7 @@ uninstall_tool() {
             echo "${RED}Invalid choice! Please enter a valid number.${RESET}"
         fi
     fi
-    read -p "${CYAN}Press Enter to continue...${RESET}" dummy
-    open_youtube_channel
+    read -p "${CYAN}Press Enter to continue...${RESET}" 
 }
 
 
@@ -216,7 +215,7 @@ about() {
 # Function to open YouTube channel link
 open_youtube_channel() {
     echo "${CYAN}Redirecting you to the YouTube channel...${RESET}"
-    xdg-open "https://youtube.com/@reset_your_minds?si=PGrBbGJmq1rqpJgA"
+    xdg-open "https://www.youtube.com/@reset_yourmind"
 }
 
 # Main loop to display menu and handle user input
